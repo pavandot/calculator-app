@@ -72,6 +72,15 @@ const resetCalculator =() => {
     console.log(calculator)
 }
 
+const delNumber = () => {
+  const { displayValue } = calculator
+  if(displayValue.length > 1) {
+    calculator.displayValue=displayValue.slice(0,-1)
+  } else {
+    calculator.displayValue='0'
+  }
+}
+
 const updateDisplay = () => {
     // select the element with class of `calculator-screen`
     const display = document.querySelector('.calculator-screen')
@@ -103,6 +112,10 @@ keys.addEventListener('click', event => {
       case 'all-clear':
         resetCalculator();
         break;
+      case 'del':
+        delNumber()
+        updateDisplay()
+        break;
       default:
         // check if the key is an integer
         if (Number.isInteger(parseFloat(value))) {
@@ -112,4 +125,5 @@ keys.addEventListener('click', event => {
   
     updateDisplay();
   });
+  
   
