@@ -126,4 +126,3 @@ keys.addEventListener('click', event => {
     updateDisplay();
   });
   
- console.log('hello world') 
